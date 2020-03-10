@@ -1,0 +1,110 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int a, b, c,mid;
+    cin >> a >> b >> c;
+     if (a > b)
+    {
+        if (a > c)
+            if (b > c)
+                mid = b;
+            else
+                mid = c;
+        else
+            mid = a;
+    }
+    else
+    {
+        if (b > c)
+            if (a > c)
+                mid = a;
+            else
+                mid = c;
+        else
+            mid = b;
+    }
+    cout<<mid;
+    return 0;
+}
+--------------------------------------------------------------------------
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int a,b,c,x,y;
+    cin>>a>>b>>c>>x>>y;
+    int min;
+    (a>b) ? min=b:min=a;
+    (min>c) ? min = c : min;
+    
+    int _min;
+    if(x>y)
+       _min=y;
+    else
+        _min=x;
+    
+    cout<<(min+_min)-50;
+        
+    return 0;
+}
+----------------------------------------------------------------
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int year;
+    cin>>year;
+    
+    if(year%4==0 && ((year%100!=0) || (year%400==0)))
+        cout<<"1";
+    else
+        cout<<"0";
+    
+    return 0;
+}
+-------------------------------------------------------
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int num;
+    cin>>num;
+    
+    if(num>=90 && num<=100)
+        cout<<"A";
+    else if(num>=80 && num<=89)
+        cout<<"B";
+    else if(num>=70 && num <=79)
+        cout<<"C";
+    else if(num>=60 && num <= 69)
+        cout<<"D";
+    else
+        cout<<"F";
+    return 0;
+}
+------------------------------------------------------------------
+#include<iostream>
+
+using namespace std;
+
+int main()
+{
+    int a,b;
+    cin>>a>>b;
+    if(a>b)
+        cout<<">";
+    else if(a==b)
+        cout<<"==";
+    else
+        cout<<"<";
+    return 0;
+}
