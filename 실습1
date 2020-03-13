@@ -1,0 +1,142 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int arr[5], sum = 0, avg;
+    for (int i = 0; i < 5; i++)
+    {
+        cin >> arr[i];
+        if (arr[i] < 40)
+            arr[i] = 40;
+        sum += arr[i];
+    }
+    avg = sum / 5;
+    cout << avg;
+    return 0;
+}
+---------------------------------------------------------------
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int n;
+    cin >> n;
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j <= i; j++)
+            cout << "*";
+        cout << "\n";    
+    }
+    for (int i = n; i > 1; i--)
+    {
+        for (int j = i; j > 1; j--)
+            cout << "*";
+        cout << "\n";
+    }
+    return 0;
+}
+----------------------------------------------------------------
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int n, a = 1;
+    cin >> n;
+    
+   
+    for (int i = 2*n-1; i > 0; i-=2)
+    {    
+        for (int j = 0; j <i; j++)
+        {          
+            cout << "*";          
+        }   
+        if (i == 1)
+            break;
+        else
+            cout << "\n";
+        for(int k=0;k<a;k++)
+            cout << " ";
+        a++;
+
+    }
+    a--;
+    for (int i = 0; i < 2 * n - 1; i += 2)
+    {
+        for (int k = 0; k < a; k++)
+            cout << " ";
+        for (int j = 0; j <= i; j++)
+        {
+            if (i == 0)
+                continue;
+            cout << "*";
+        }
+        if (i == 2*n-2)
+            break;
+        else
+            cout << "\n";
+        a--;
+    }
+    return 0;
+}
+//비쥬얼에서 문제에 맞게 모양이 나왔어서 제출했지만 출력형식이 다르다고 나와서 무슨 말인지 해서 봤더니 가운데 *이 1개찍힐 때 오른쪽으로
+//a갯수 만큼 공백이 찍혀서 오류였다는 것을 알게되어 밑에 for문(*이 증가할 때) i가 0일 때 공백을 추가하지 않도록 코드를 변경하였다.
+↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int n, a = 1;
+    cin >> n;
+    
+   
+    for (int i = 2*n-1; i > 0; i-=2)
+    {    
+        for (int j = 0; j <i; j++)
+        {          
+            cout << "*";          
+        }   
+        if (i == 1)
+            break;
+        else
+            cout << "\n";
+        for(int k=0;k<a;k++)
+            cout << " ";
+        a++;
+
+    }
+    a-=2;
+    for (int i = 0; i < 2 * n - 1; i += 2)
+    {
+        if (i == 0)
+        {
+            cout << "\n";
+            continue;
+        }
+        else
+        {
+            for (int k = 0; k < a; k++)
+                cout << " ";
+        }
+        for (int j = 0; j <= i; j++)
+        {
+            if (i == 0)
+                continue;
+            cout << "*";
+        }
+        if (i == 2*n-2)
+            break;
+        else
+            cout << "\n";
+        a--;
+    }
+    return 0;
+}
+-----------------------------------------------------------------------------------------------------------
