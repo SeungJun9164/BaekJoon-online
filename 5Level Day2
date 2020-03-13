@@ -43,3 +43,38 @@ int main()
 //내가 문제를 너무 어렵게 접근하는것 같다고 느껴졌다. (https://blog.naver.com/jmk1118/221817010057 <<도움 받은 곳)
 
 -----------------------------------------------------------------------------------------------------------------
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    cout << fixed;
+    cout.precision(3);
+
+    int c, n, sum = 0, cnt = 0; //c : 테스트 갯수 n : 학생수
+    int score[1000];
+    double avg, rat;
+
+    cin >> c;
+    for (int i = 0; i < c; i++)
+    {
+        rat = 0;
+        cnt = 0;
+        sum = 0;
+        cin >> n;
+        for (int j = 0; j < n; j++)
+        {
+            cin >> score[j];
+            sum += score[j];
+        }
+        avg = (double)sum / n;
+        for (int k = 0; k < n; k++)
+        {
+            if (avg < score[k])
+                cnt++;
+        }
+        rat = (double)cnt / n * 100;
+        cout << rat << "%\n";
+    }
+}
