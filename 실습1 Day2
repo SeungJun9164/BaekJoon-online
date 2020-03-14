@@ -1,0 +1,40 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int n;
+    cin >> n;
+    if (n == 1)
+        cout << "*";
+    else
+        for (int i = 0; i < 2 * n; i++)
+        {
+            if (i % 2 == 0)
+            {
+                for (int j = 0; j < (n - 1)/ 2 + 1; j++)
+                {
+                    cout << "* ";
+                }
+            }
+            else
+            {
+                for (int j = 0; j < n / 2; j++)
+                {
+                    if (j == n / 2 - 1)
+                        cout << " * ";
+                    else
+                        cout << " *";
+                }
+            }
+            if (i == 2 * n - 1)
+                break;
+            else
+                cout << "\n";
+        }
+    return 0;
+}
+//6번 이나 시도해서 겨우 맞췄다. 나는 공백때문에 여태까지 틀린줄 알고 공백을 고치려고 시도했지만 다른데에서 잘못 되었던 것이다.
+//(n - 1) / 2 + 1 이부분을 n / 2 + 1로 썼었어서 입력 값이 4일 때 별이 3개가 나왔던 것이였다.
+//
