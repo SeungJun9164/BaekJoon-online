@@ -1,0 +1,125 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	string str;
+	int cnt[26] = { 0 };
+	int max = 0;
+	char maxStr = 'A';
+	bool isCheck = false;
+
+	cin >> str;
+	for (int i = 0; i < str.size(); i++)
+	{
+		if (str[i] >= 'a')
+			cnt[str[i] - 'a']++;
+		else
+			cnt[str[i] - 'A']++;
+	}
+	for (int i = 0; i < 26; i++)
+	{
+		if (max < cnt[i])
+		{
+			max = cnt[i];
+			maxStr = 'A' + i;
+			isCheck = false;
+		}
+		else if (max == cnt[i])
+		{
+			isCheck = true;
+		}
+	}
+	if (isCheck)
+		cout << "?";
+	else
+		cout << maxStr;
+	
+	return 0;
+}
+------------------------------------------------------------------------------------
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	int n, r;
+	string str;
+	string _str[1000];
+	cin >> n;
+	for (int i = 0; i < n; i++)
+	{
+		cin >> r >> str;
+		for (int j = 0; j < str.size(); j++)
+		{
+			for (int k = 0; k < r; k++)
+			{
+				cout << str[j];
+			}
+		}
+		cout << "\n";
+	}
+	
+	return 0;
+}
+--------------------------------------------------------------------------
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	string s; //s는 소문자로만
+	int num[26];
+
+	for (int i = 0; i < 26; i++)
+		num[i] = -1;
+	cin >> s;
+
+	for (int i = 0; i < s.size(); i++)
+	{
+		if (num[s[i] - 'a'] == -1)
+			num[s[i] - 'a'] = i;
+	}
+	for (int i = 0; i < 26; i++)
+		cout << num[i] << " ";
+	
+	
+	return 0;
+}
+//num의 위치를 찾으려고 20~30분을 찾았던거 같다..
+----------------------------------------------------------------------------------
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	int n, sum=0;
+	string str;
+	char c;
+	cin >> n;
+	cin >> str;
+	for (int i = 0; i < str.size(); i++)
+	{
+		sum += str[i] - '0';
+	}
+	cout << sum;
+	return 0;
+}
+-----------------------------------------------------------------------------------
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	int a;
+	char n;
+	cin >> n;
+
+	cout << (int)n;
+	return 0;
+}
