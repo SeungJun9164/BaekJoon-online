@@ -1,0 +1,50 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main()
+{
+	int n, a;
+	cin >> n;
+
+	if (n % 5 == 0)
+		cout << n / 5;
+	else
+	{
+		a = n / 5;
+		do {
+			if ((n - (a * 5)) % 3 == 0)
+			{
+				cout << a + (n - (a * 5)) / 3;
+				break;
+			}
+			else
+				a--;
+		} while (a >= 0);
+		if (a == -1)
+			cout << -1;
+	}
+	return 0;
+}
+//설탕문제 푸는데 어제오늘 합쳐서 2시간넘게 걸린거 같다.....
+-------------------------------------------------------------------------------------------
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main()
+{
+	int n, sum = 1, cnt = 1;
+	cin >> n;
+
+	while (sum < n)
+	{
+		sum += cnt * 6;
+		cnt++;
+	}
+
+	cout << cnt;
+}
+//이건 다른사람이 푼 것을 보고 이해하고 다시 작성한 것이다. 그 전에 2시간동안 작성한 코드지만 계속 틀려서 다른 분의 힘을 빌리기로 했다.
