@@ -1,0 +1,64 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+bool primeNum[1000] = { false };
+
+int main()
+{
+	int n, a, cnt = 0;	
+			
+	primeNum[0] = true;
+	for (int j = 2; j <= 1000; j++)
+	{
+		if (primeNum[j - 1] == true)
+			continue;
+		for (int k = j + j; k <= 1000; k += j)
+			primeNum[k - 1] = true;
+	}
+
+	cin >> n;
+	for (int i = 0; i < n; i++)
+	{
+		cin >> a;
+		if (a == 1)
+		{
+			continue;
+		}	
+		if (primeNum[a - 1] == false)
+			cnt++;
+	}
+	cout << cnt;
+	
+	return 0;
+}
+//예전에 프로그래머스에서 한번 풀어봤던 에라토스테니스의 체를 이용한 문제이다.
+//에라토스테니스의 체는 n까지의 소수 찾기인데 이것을 변형한 문제같다. 다시 기억해내고 바꾸는데 5번틀렸다..
+------------------------------------------------------------------------------------------------------
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main()
+{
+	int x1, y1, x2, y2, x3, y3, x4, y4;
+	cin >> x1 >> y1 >> x2 >> y2 >> x3 >> y3;
+
+	if (x1 == x2)
+		x4 = x3;
+	else if (x2 == x3)
+		x4 = x1;
+	else if (x1 == x3)
+		x4 = x2;
+
+	if (y1 == y2)
+		y4 = y3;
+	else if (y2 == y3)
+		y4 = y1;
+	else if (y1 == y3)
+		y4 = y2;
+	
+	cout << x4 <<" "<< y4;
+	return 0;
+}
