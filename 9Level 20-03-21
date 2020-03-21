@@ -1,0 +1,37 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main()
+{	
+	int PrimeNum[10000] = { false };
+
+	PrimeNum[0] = true;
+	for (int i = 2; i <= 10000; i++)
+	{
+		if (PrimeNum[i - 1] == true)
+			continue;
+		for (int j = i + i; j <= 10000; j += i)
+			PrimeNum[j - 1] = true;
+	}
+
+	int m, n, sum = 0, min = 10001, cnt = 0;
+	cin >> m >> n;
+	for (int i = m; i <= n; i++)
+	{
+		if (PrimeNum[i - 1] == false)
+		{
+			if (min > i)
+				min = i;
+			sum += i;	
+			cnt++;
+		}		
+	}
+	if (cnt == 0)
+		cout << -1;
+	else
+		cout << sum << "\n" << min;
+	return 0;
+}
+---------------------------------------------------------------------------------------------------
