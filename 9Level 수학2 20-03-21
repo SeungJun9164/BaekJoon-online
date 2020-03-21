@@ -35,3 +35,35 @@ int main()
 	return 0;
 }
 ---------------------------------------------------------------------------------------------------
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main()
+{
+	
+	int PrimeNum[1000000] = { false };	
+
+	PrimeNum[0] = true;
+	for (int i = 2; i <= 1000000; i++)
+	{
+		if (PrimeNum[i - 1] == true)
+			continue;
+		for (int j = i + i; j <= 1000000; j += i)
+			PrimeNum[j - 1] = true;
+	}
+	
+	int m, n;
+	cin >> m >> n;
+	for (int i = m; i <= n; i++)
+	{
+		if (PrimeNum[i - 1] == false)
+		{
+			cout << i << "\n";
+		}
+	}
+	return 0;
+}
+//처음에 시간초과가 뜨길래 뭐지 했는데 다른사람들도 시간초과가 떴었나 보다. 시간초과가 뜬이유가 cout을 출력할때 endl이 \n보다 훨씬 느리기 때문이였다.
+
