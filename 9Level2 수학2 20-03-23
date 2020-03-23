@@ -1,0 +1,75 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+bool PrimeNum[246913] = { false };
+int main()
+{
+	int cnt = 0;
+	PrimeNum[0] = true;
+	
+	for(int i=2;i<= 246912;i++)
+	{
+		if (PrimeNum[i - 1] == true)
+			continue;
+		for (int j = i + i; j <= 246912; j+=i)
+			PrimeNum[j - 1] = true;
+	}
+
+	int n;
+	do {
+		cin >> n;
+		cnt = 0;
+		for (int i = n + 1; i <= 2 * n; i++)
+		{
+			if (PrimeNum[i - 1] == false)
+				cnt++;
+		}	
+		if (n == 0)
+			break;
+		else
+			cout << cnt << "\n";
+	} while (n != 0);
+}
+//맨 마지막에 출력할 때 while문을 돌리지 않은 것 때문에 3번이나 틀렸다.. 그리고 cnt를 초기화 해주지 않아서 1번 0일때 cnt를 출력해서 또 한번..
+//문제에서 주어진 조건을 잘 봐야겠다.
+----------------------------------------------------------------------------------------------------------------------------
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+bool PrimeNum[10000] = { false };
+int main()
+{
+	int cnt = 0;
+	PrimeNum[0] = true;
+	
+	for(int i=2; i<= 10000;i++)
+	{
+		if (PrimeNum[i - 1] == true)
+			continue;
+		for (int j = i + i; j <= 10000; j+=i)
+			PrimeNum[j - 1] = true;
+	}
+
+	int t, n, down, up;
+	cin >> t;
+
+	for (int i = 0; i < t; i++)
+	{
+		cin >> n;
+		down = n / 2;
+		up = n / 2;
+		while (PrimeNum[down - 1] != false || PrimeNum[up - 1] != false)
+		{
+			down--;
+			up++;
+		}
+		cout << down << " " << up << "\n";
+	}
+}
+//합을 구하는데에서 계속 생각해봤지만 집중력이 다된건지 도저히 모르겠었다. 그래서 다른사람의 코드를 보고 공부를 하였다
+//n이 짝수이므로 2로 나눈다음 down과up에 넣어준후 down은 -1하고 up은 +1을 하여 2개 모두가 false이고 제일 차이가 안나는 것이 나올때까지 반복해준다
+//그러면 결과가 나오게 된다.
