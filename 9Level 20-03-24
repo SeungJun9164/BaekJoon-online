@@ -1,0 +1,73 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+
+int main()
+{
+	int x, y, w, h;
+	cin >> x >> y >> w >> h; //6,2,10,3
+
+	int n = x; 
+	if (n > y) 
+		n = y;
+	if (n > (w - x))
+		n = (w - x);
+	if (n > (h - y))
+		n = (h - y);
+	cout << n;
+	return 0;
+}
+-----------------------------------------------------------------------------------
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+
+int main()
+{
+	int x, y, z;
+	while (1)
+	{
+		cin >> x >> y >> z;
+		if (x == 0 && y == 0 && z == 0)
+			break;
+		else
+		{
+			if(x>y)
+				if (x > z)
+				{
+					if ((z * z) + (y * y) == (x * x))
+						cout << "right" << "\n";
+					else
+						cout << "wrong" << "\n";
+				}
+				else
+				{
+					if ((x * x) + (y * y) == (z * z))
+						cout << "right" << "\n";
+					else
+						cout << "wrong" << "\n";
+				}
+			else
+				if (y > z)
+				{
+					if ((z * z) + (x * x) == (y * y))
+						cout << "right" << "\n";
+					else
+						cout << "wrong" << "\n";
+				}
+				else
+				{
+					if ((x * x) + (y * y) == (z * z))
+						cout << "right" << "\n";
+					else
+						cout << "wrong" << "\n";
+				}
+		}
+	}
+	return 0;
+}
+//처음에 xyz가 순서대로 나오는줄 알고 조건 하나만 썼다가 틀렸다. 그래서 조건을 추가하였다.
