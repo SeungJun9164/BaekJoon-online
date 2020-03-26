@@ -1,0 +1,67 @@
+#include <iostream>
+
+using namespace std;
+
+int Dn(int n) {
+	int sum = n;
+	int a = 0;
+
+	while (n != 0) {
+		a = n % 10;
+		sum += a;
+		n /= 10;
+	}
+	return sum;
+}
+
+int main()
+{
+	int n = 0;
+	int x[10001] = { false };
+
+	for (int i = 0; i < 10001; i++)
+	{
+		int k = Dn(i);
+		if (k <= 10000)
+			x[k] = true;
+	}
+	for (int i = 0; i < 10001; i++)
+		if (!x[i])
+			cout << i << "\n";
+}
+---------------------------------------------------------------------------------------------------------
+#include <iostream>
+
+using namespace std;
+
+int Han(int n) {
+	int one, two, three;
+	one = (n / 10) / 10;
+	two = (n / 10) % 10;
+	three = n % 10;
+
+	int sub1 = one - two;
+	int sub2 = two - three;
+
+	if (sub1 == sub2)
+		return 1;
+	else
+		return 0;
+}
+
+int main()
+{
+	int n = 0, cnt = 0;
+	cin >> n;
+
+	if (n <= 99)
+		cnt = n;
+	else
+	{
+		cnt = 99;
+		for (int i = 100; i <= n; i++)
+			cnt = cnt + Han(i);
+	}
+	cout << cnt;
+}
+//한수 문제를 이해하는데 오래걸렸다..
