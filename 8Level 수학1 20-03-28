@@ -1,0 +1,54 @@
+#include <iostream>
+int main() {
+	int x, cnt = 0, group = 0;
+	std::cin >> x;
+	while (cnt < x) {
+		group++;    //그룹
+		cnt += group; //횟수
+	}
+
+	if (group % 2)
+		std::cout << ((cnt - x) + 1) << "/" << (group - (cnt - x));
+	else
+		std::cout << (group - (cnt - x)) << "/" << ((cnt - x) + 1);
+}
+//처음 문제에 접근했을 때 문제를 이해하고 규칙은 찾았지만 코드를 어떻게 구현해야하는지 도저히 감이 잡히지 않아서 다른 사람의 코드를 보고 이해하였다.
+//다른 사람의 코드를 이해하는데도 한 30분은 걸린것 같다...수학에 대해 너무 약한거 같다ㅠㅠ
+------------------------------------------------------------------------------------------------------------------
+#include <iostream>
+int main() {
+	int x = 1, y = 1, h, w, n;
+	int t;
+
+	std::cin >> t;
+	
+	for (int i = 0; i < t; i++)
+	{
+		std::cin >> h >> w >> n;
+		if (n <= h)
+		{
+			std::cout << n << 0 << x;
+		}
+		else
+		{	
+			if (n / h > 1)
+			{
+				if ((n % h) % 2 == 0)
+					x = n / h + 1;
+				else
+					x = n / h + 2;
+			}
+			else
+				x++;
+			y = n % h;
+			if (y == 0)
+				y = h;
+			if (x < 10)
+				std::cout << y << 0 << x << "\n";
+			else
+				std::cout << y << x << "\n";
+		}
+		x = y = 1;
+	}
+}
+//수정중
