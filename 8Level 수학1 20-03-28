@@ -51,4 +51,31 @@ int main() {
 		x = y = 1;
 	}
 }
-//수정중
+//계속 테스트에서 반례를 찾아서 고치면 맞았던게 틀리게 나오고를 반복해서 코드를 다시 단순하게 바꿔보았다
+#include <iostream>
+int main() {
+	int x = 1, y = 1, h, w, n;
+	int t;
+
+	std::cin >> t;
+	
+	for (int i = 0; i < t; i++)
+	{
+		std::cin >> h >> w >> n;
+		if (n % h == 0)
+		{
+			if (n / h < 10)
+				std::cout << h << 0 << n / h << "\n";
+			else
+				std::cout << h << n / h << "\n";
+		}
+		else
+		{
+			if (n / h < 10)
+				std::cout << n % h << 0 << n / h + 1 << "\n";
+			else
+				std::cout << n % h << n / h + 1 << "\n";
+		}
+	}
+}
+//그래도 또 오답....내일 다시 도전해봐야겠다.
