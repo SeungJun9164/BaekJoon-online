@@ -1,15 +1,15 @@
 #include <iostream>
- //2557¹ø
+ //2557ë²ˆ
 /*int main() {
 	std::cout << "Hello World!";
 }*/
 
-//10718¹ø
+//10718ë²ˆ
 /*int main() {
-	std::cout << "°­ÇÑÄ£±¸ ´ëÇÑÀ°±º\n" << "°­ÇÑÄ£±¸ ´ëÇÑÀ°±º";
+	std::cout << "ê°•í•œì¹œêµ¬ ëŒ€í•œìœ¡êµ°\n" << "ê°•í•œì¹œêµ¬ ëŒ€í•œìœ¡êµ°";
 }*/
 
-//10171¹ø
+//10171ë²ˆ
 /*int main() {
 	std::cout << "\\    /\\" << std::endl;
 	std::cout << " )  ( ')" << std::endl;
@@ -17,7 +17,7 @@
 	std::cout << " \\(__)|" << std::endl;
 }*/
 
-//10172¹ø
+//10172ë²ˆ
 int main() {
 	std::cout << "|\\_/|" << std::endl;
 	std::cout << "|q p|   /}" << std::endl;
@@ -26,36 +26,36 @@ int main() {
 	std::cout << "||_/=\\\\__|" << std::endl;
 }
 
-//1000¹ø
+//1000ë²ˆ
 int main() {
 	int a, b;
 	std::cin >> a >> b;
 	std::cout << a + b;
 }
 
-//1001¹ø
+//1001ë²ˆ
 int main() {
 	int a, b;
 	std::cin >> a >> b;
 	std::cout << a - b;
 }
 
-//10998¹ø
+//10998ë²ˆ
 int main() {
 	int a, b;
 	std::cin >> a >> b;
 	std::cout << a * b;
 }
 
-//1008¹ø
+//1008ë²ˆ
 int main() {
 	int a, b;
 	std::cin >> a >> b;
-	std::cout.precision(10); //¼Ò¼öÁ¡ 10ÀÚ¸®±îÁö Ç¥½ÃÇÏ°Ú´Ù!
+	std::cout.precision(10); //ì†Œìˆ˜ì  10ìë¦¬ê¹Œì§€ í‘œì‹œí•˜ê² ë‹¤!
 	std::cout << a /(double) b;
 }
 
-//10869¹ø
+//10869ë²ˆ
 int main() {
 	int a, b;
 	std::cin >> a >> b;
@@ -63,7 +63,7 @@ int main() {
 		<< std::endl << a / b << std::endl << a % b;
 }
 
-//10430¹ø
+//10430ë²ˆ
 int main() {
 	int a, b, c;
 	std::cin >> a >> b >> c;
@@ -71,7 +71,7 @@ int main() {
 		<< std::endl << (a * b) % c << std::endl << ((a % c) * (b % c)) % c;
 }
 
-//2558¹ø
+//2558ë²ˆ
 int main() {
 	int a, b;
 	std::cin >> a >> b;
