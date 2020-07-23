@@ -64,30 +64,93 @@
 //	std::cout << cnt;
 //}
 
-//1546번
+////1546번
+//int main() {
+//	int n;
+//	double max = 0, sum = 0, avg = 0;
+//
+//	std::cin >> n;
+//	double* arr = new double[n];
+//	for (int i = 0; i < n; i++) {
+//		std::cin >> arr[i];
+//	}
+//	for (int i = 0; i < n; i++) {
+//
+//		if (max < arr[i]) {
+//			max = arr[i];
+//		}
+//
+//	}
+//	for (int i = 0; i < n; i++) {
+//		arr[i] = (arr[i] / max * 100.0);
+//		sum += arr[i];
+//	}
+//	std::cout << std::fixed;
+//	std::cout.precision(2);
+//	std::cout << sum / n << std::endl;
+//	delete[] arr;
+//}
+
+////8958번
+//int main() {
+//	int n, cnt = 0, score = 0;
+//	std::cin >> n;
+//	std::string* str = new std::string[n];
+//	int* s_list = new int[n];
+//	for (int i = 0; i < n; i++) {
+//		std::cin >> str[i];
+//	}
+//	for (int i = 0; i < n; i++) {
+//		score = 0;
+//		cnt = 0;
+//		for (int j = 0; j < str[i].length(); j++) {
+//			if (str[i][j] == 'O') {
+//				if (j >= 1 && str[i][j - 1] == 'O') {
+//					cnt += 1;
+//					score += cnt;
+//				}
+//				else {
+//					cnt = 1;
+//					score += cnt;
+//				}
+//			}
+//		}
+//		s_list[i] = score;
+//	}
+//	
+//	for(int i=0;i<n;i++)
+//		std::cout << s_list[i] << '\n';
+//	delete[] s_list, str;
+//}
+
+//4344번
 int main() {
-	int n;
-	double max = 0, sum = 0, avg = 0;
+	int c, n, sum = 0, cnt = 0;
+	int score[1000];
+	double avg, rest;
 
-	std::cin >> n;
-	double* arr = new double[n];
-	for (int i = 0; i < n; i++) {
-		std::cin >> arr[i];
-	}
-	for (int i = 0; i < n; i++) {
-
-		if (max < arr[i]) {
-			max = arr[i];
+	std::cin >> c;
+	for (int i = 0; i < c; i++)
+	{
+		rest = 0;
+		cnt = 0;
+		sum = 0;
+		std::cin >> n;
+		for (int j = 0; j < n; j++)
+		{
+			std::cin >> score[j];
+			sum += score[j];
 		}
+		avg = (double)sum / n;
+		for (int j = 0; j < n; j++)
+		{
+			if (avg < score[j])
+				cnt++;
+		}
+		rest = (double)cnt / n * 100;
 
+		std::cout << std::fixed;
+		std::cout.precision(3);
+		std::cout << rest << "%\n";
 	}
-	for (int i = 0; i < n; i++) {
-		arr[i] = (arr[i] / max * 100.0);
-		sum += arr[i];
-	}
-	std::cout << std::fixed;
-	std::cout.precision(2);
-	std::cout << sum / n << std::endl;
-	delete[] arr;
 }
-
