@@ -51,3 +51,29 @@
 #     day = (v - b) // (a - b) + 1
 # print(day)
 
+# # 10250번
+# t = int(input())
+# for i in range(t):
+#     h, w, n = map(int, input().split())
+#     y = n % h
+#     x = n // h + 1
+#     if y == 0:
+#         y = h
+#         x -= 1
+#     print(y * 100 + x)
+
+# 2775번
+str = [[0 for i in range(15)] for j in range(15)]
+for i in range(15):
+    str[0][i] = i + 1
+    str[i][0] = 1
+
+for i in range(1, 15):
+    for j in range(1, 15):
+        str[i][j] = str[i - 1][j] + str[i][j - 1]
+
+t = int(input())
+for i in range(t):
+    k = int(input())
+    n = int(input())
+    print(str[k][n - 1])
