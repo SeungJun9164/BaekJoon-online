@@ -1,6 +1,5 @@
 # 브루드 포스 알고리즘(brute force algorithm)
 # 모든 경우의 수를 모두 해보는 것
-
 # 2798번
 n, m = map(int, input().split())
 arr = list(map(int, input().split()))
