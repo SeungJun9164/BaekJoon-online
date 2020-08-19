@@ -60,51 +60,51 @@
 //	}
 //}
 
-// 2108번
-int main(){
-	int n, temp, mode = 0, _min = 4000, _max = -4000;
-    double _sum = 0;
-	bool chk = false;
-	std::cin >> n;
-
-	std::vector<int> v(n);
-    std::vector<int> cnt(8001);
-    std::fill(cnt.begin(), cnt.end(), 0);
-
-    for (int i = 0; i < n; i++) {
-        std::cin >> v[i];
-        _sum += v[i];
-        _max = std::max(_max, v[i]);
-        _min = std::min(_min, v[i]);
-    }
-
-	std::cout << (int)std::round(_sum / double(n)) << '\n';
-
-    int idx = 0;
-    int maxidx = 0;
-    for (int i = 0; i < n; i++) {
-        idx = v[i] + 4000;
-        cnt[idx]++;
-        maxidx = std::max(maxidx, cnt[idx]);
-    }
-    int count = 0;
-    int secondMany = 0;
-    for (int i = 0; i < cnt.size(); i++) {
-        if (cnt[i] == maxidx) {
-            count++;
-            secondMany = i - 4000;
-        }
-        if (count == 2) {
-            secondMany = i - 4000;
-            break;
-        }
-    }
-    std::sort(v.begin(), v.end());
-
-    std::cout << v[n / 2] << '\n';
-    std::cout << secondMany << '\n';
-    std::cout << _max - _min << '\n';
-}
+//// 2108번
+//int main(){
+//	int n, temp, mode = 0, _min = 4000, _max = -4000;
+//    double _sum = 0;
+//	bool chk = false;
+//	std::cin >> n;
+//
+//	std::vector<int> v(n);
+//    std::vector<int> cnt(8001);
+//    std::fill(cnt.begin(), cnt.end(), 0);
+//
+//    for (int i = 0; i < n; i++) {
+//        std::cin >> v[i];
+//        _sum += v[i];
+//        _max = std::max(_max, v[i]);
+//        _min = std::min(_min, v[i]);
+//    }
+//
+//	std::cout << (int)std::round(_sum / double(n)) << '\n';
+//
+//    int idx = 0;
+//    int maxidx = 0;
+//    for (int i = 0; i < n; i++) {
+//        idx = v[i] + 4000;
+//        cnt[idx]++;
+//        maxidx = std::max(maxidx, cnt[idx]);
+//    }
+//    int count = 0;
+//    int secondMany = 0;
+//    for (int i = 0; i < cnt.size(); i++) {
+//        if (cnt[i] == maxidx) {
+//            count++;
+//            secondMany = i - 4000;
+//        }
+//        if (count == 2) {
+//            secondMany = i - 4000;
+//            break;
+//        }
+//    }
+//    std::sort(v.begin(), v.end());
+//
+//    std::cout << v[n / 2] << '\n';
+//    std::cout << secondMany << '\n';
+//    std::cout << _max - _min << '\n';
+//}
 
 //// 1427번
 //int main() {
@@ -127,3 +127,73 @@ int main(){
 //	for (int i = 0; i < idx; i++)
 //		std::cout << num[i];
 //}
+
+//// 11650번
+//int main() {
+//	int n, x, y;
+//	std::cin >> n;
+//	std::vector<std::pair<int, int>> pv(n);
+//	for (int i = 0; i < n; i++) {
+//		std::cin >> pv[i].first >> pv[i].second;
+//	}
+//	sort(pv.begin(), pv.end());
+//	for (int i = 0; i < n; i++) {
+//		std::cout << pv[i].first << ' ' << pv[i].second << '\n';
+//	}
+//}
+
+//// 11651번
+//int main() {
+//	int n, x, y;
+//	std::cin >> n;
+//	std::vector<std::pair<int, int>> pv(n);
+//	for (int i = 0; i < n; i++) {
+//		std::cin >> pv[i].second >> pv[i].first;
+//	}
+//	sort(pv.begin(), pv.end());
+//	for (int i = 0; i < n; i++) {
+//		std::cout << pv[i].second << ' ' << pv[i].first << '\n';
+//	}
+//}
+
+////1181번
+//int main() {
+//	int n;
+//	std::string str;
+//	std::cin >> n;
+//	std::vector<std::pair<int, std::string>> pv(n);
+//	for (int i = 0; i < n; i++) {
+//		std::cin >> str;
+//		pv[i].first = str.length();
+//		pv[i].second = str;
+//	}
+//	std::sort(pv.begin(), pv.end());
+//	for (int i = 0; i < n; i++) {
+//		if (i != 0 && pv[i - 1] == pv[i]) {
+//			pv[i - 1].second.erase();
+//			i--;
+//		}
+//	}
+//	for (int i = 0; i < n; i++) {
+//		if(pv[i].second != "")
+//			std::cout << pv[i].second << '\n';
+//	}
+//}
+
+// 10814번
+bool cmp(std::pair<int, std::string> a, std::pair<int, std::string> b) {
+	return a.first < b.first;
+}
+int main() {
+	int n;
+	std::cin >> n;
+	std::vector<std::pair<int, std::string>> pv(n);
+	for (int i = 0; i < n; i++) {
+		std::cin >> pv[i].first >> pv[i].second;
+	}
+	std::stable_sort(pv.begin(), pv.end(), cmp);
+
+	for (int i = 0; i < n; i++) {
+		std::cout << pv[i].first << ' ' << pv[i].second << '\n';
+	}
+}
