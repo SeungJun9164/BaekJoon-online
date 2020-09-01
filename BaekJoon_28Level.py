@@ -27,3 +27,25 @@ for i in range(m):
 dfs(v)
 print()
 bfs(v)
+
+# 2606번
+def dfs(start):
+    visit[start] = 1
+    for i in range(n):
+        if visit[i] == 0 and worm[start][i] == 1:
+            dfs(i)
+
+cnt = 0
+n = int(input())
+m = int(input())
+worm = [[0] * n for i in range(n)]
+visit = [0 for i in range(n)]
+for i in range(m):
+    x, y = map(int, input().split())
+    worm[x-1][y-1] = 1
+    worm[y-1][x-1] = 1
+dfs(0)
+for i in range(1, n):
+    if visit[i] == 1:
+        cnt += 1
+print(cnt)
